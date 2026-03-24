@@ -10,10 +10,10 @@ const footerLinks = {
     { label: 'Pricing', to: '/pricing' },
   ],
   'Services': [
-    { label: 'Anxiety & Stress', to: '/services' },
-    { label: 'Confidence Building', to: '/services' },
-    { label: 'Sleep Issues', to: '/services' },
-    { label: 'Habit Breaking', to: '/services' },
+    { label: 'Anxiety & Stress', to: '/services/anxiety-stress' },
+    { label: 'Confidence Building', to: '/services/confidence-building' },
+    { label: 'Sleep Issues', to: '/services/sleep-issues' },
+    { label: 'Habit Breaking', to: '/services/habit-breaking' },
   ],
   'Support': [
     { label: 'FAQ', to: '/pricing' },

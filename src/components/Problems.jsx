@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import AnimateOnScroll from './AnimateOnScroll';
+import { HiArrowRight } from 'react-icons/hi';
 import './Problems.css';
 
 const problems = [
@@ -6,6 +8,7 @@ const problems = [
     icon: '😰',
     title: 'Anxiety & Stress',
     description: 'Calm the constant worry and physical tension that holds you back from living fully.',
+    slug: 'anxiety-stress'
   },
   {
     icon: '🌀',
@@ -16,6 +19,7 @@ const problems = [
     icon: '💎',
     title: 'Confidence Issues',
     description: 'Build genuine self-belief and overcome the inner critic that limits your potential.',
+    slug: 'confidence-building'
   },
   {
     icon: '😨',
@@ -26,6 +30,7 @@ const problems = [
     icon: '🌙',
     title: 'Sleep Problems',
     description: 'Achieve deep, restful sleep naturally without relying on medication.',
+    slug: 'sleep-issues'
   },
   {
     icon: '🎯',
@@ -36,6 +41,7 @@ const problems = [
     icon: '🔄',
     title: 'Unwanted Habits',
     description: 'Break free from smoking, procrastination, nail-biting, and other patterns holding you back.',
+    slug: 'habit-breaking'
   },
 ];
 
@@ -53,13 +59,34 @@ export default function Problems() {
         </AnimateOnScroll>
 
         <div className="problems__grid">
-          {problems.map((problem, i) => (
-            <AnimateOnScroll className="problems__card" key={i} delay={i * 80}>
-              <div className="problems__card-icon">{problem.icon}</div>
-              <h3 className="problems__card-title">{problem.title}</h3>
-              <p className="problems__card-desc">{problem.description}</p>
-            </AnimateOnScroll>
-          ))}
+          {problems.map((problem, i) => {
+            const CardContent = (
+              <>
+                <div className="problems__card-icon">{problem.icon}</div>
+                <h3 className="problems__card-title">{problem.title}</h3>
+                <p className="problems__card-desc">{problem.description}</p>
+                {problem.slug && (
+                  <span className="problems__card-link">
+                    Learn More <HiArrowRight />
+                  </span>
+                )}
+              </>
+            );
+
+            return (
+              <AnimateOnScroll key={i} delay={i * 80}>
+                {problem.slug ? (
+                  <Link to={`/services/${problem.slug}`} className="problems__card problems__card--link">
+                    {CardContent}
+                  </Link>
+                ) : (
+                  <div className="problems__card">
+                    {CardContent}
+                  </div>
+                )}
+              </AnimateOnScroll>
+            );
+          })}
         </div>
       </div>
     </section>

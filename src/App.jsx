@@ -5,6 +5,7 @@ import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
+import ServiceDetailPage from './pages/ServiceDetailPage';
 import TestimonialsPage from './pages/TestimonialsPage';
 import PricingPage from './pages/PricingPage';
 import BlogPage from './pages/BlogPage';
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/services/:slug" element={<ServiceDetailPage />} />
           <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/blog" element={<BlogPage />} />
