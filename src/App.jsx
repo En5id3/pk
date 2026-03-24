@@ -8,6 +8,7 @@ import ServicesPage from './pages/ServicesPage';
 import TestimonialsPage from './pages/TestimonialsPage';
 import PricingPage from './pages/PricingPage';
 import BlogPage from './pages/BlogPage';
+import BlogPostPage from './pages/BlogPostPage';
 import ContactPage from './pages/ContactPage';
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </main>
