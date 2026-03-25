@@ -46,6 +46,32 @@
 .problems__card-desc {
   font-size: var(--text-sm);
   line-height: 1.7;
+  flex: 1;
+}
+
+.problems__card--link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  cursor: pointer;
+}
+
+.problems__card-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-lg);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: gap var(--transition-fast);
+}
+
+.problems__card--link:hover .problems__card-link {
+  gap: var(--space-sm);
 }
 
 @media (max-width: 480px) {
