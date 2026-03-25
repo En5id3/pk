@@ -34,11 +34,11 @@ const sessions = [
   },
   {
     icon: <HiCollection />,
-    title: 'Package (5 Sessions)',
+    title: 'Online Package (5 Sessions)',
     price: '₹18,000',
     period: 'save ₹2,000',
     features: [
-      '5 sessions (online or in-person)',
+      '5 online sessions',
       'Comprehensive transformation plan',
       'Priority scheduling',
       'Extended WhatsApp support',
