@@ -83,12 +83,26 @@
   animation-delay: 4s;
 }
 
-.hero__content {
+.hero__grid {
   position: relative;
   z-index: 1;
-  text-align: center;
-  max-width: 800px;
-  animation: fadeInUp 1s ease 0.2s both;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--space-4xl);
+  width: 100%;
+}
+
+.hero__text-content {
+  text-align: left;
+  animation: slideInLeft 1s ease 0.2s both;
+}
+
+.hero__visual {
+  animation: slideInRight 1s ease 0.4s both;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero__badge {
@@ -121,14 +135,13 @@
 .hero__subtitle {
   font-size: var(--text-xl);
   max-width: 600px;
-  margin: 0 auto var(--space-2xl);
+  margin-bottom: var(--space-2xl);
   color: var(--color-text-secondary);
 }
 
 .hero__actions {
   display: flex;
   gap: var(--space-lg);
-  justify-content: center;
   flex-wrap: wrap;
   margin-bottom: var(--space-3xl);
 }
@@ -136,14 +149,15 @@
 .hero__trust {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: var(--space-xl);
-  padding: var(--space-lg) var(--space-2xl);
+  padding: var(--space-md) var(--space-lg);
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(10px);
   border-radius: var(--radius-xl);
   border: 1px solid rgba(255, 255, 255, 0.6);
   animation: fadeInUp 1s ease 0.6s both;
+  width: fit-content;
 }
 
 .hero__trust-item {
@@ -172,10 +186,36 @@
   background: var(--color-border);
 }
 
+@media (max-width: 1024px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: var(--space-2xl);
+    padding-top: var(--space-3xl);
+  }
+  
+  .hero__text-content {
+    text-align: center;
+  }
+  
+  .hero__trust {
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+  
+  .hero__subtitle {
+    margin: 0 auto var(--space-2xl);
+  }
+}
+
 @media (max-width: 768px) {
   .hero__title { font-size: var(--text-4xl); }
   .hero__subtitle { font-size: var(--text-lg); }
-  .hero__trust { flex-direction: column; gap: var(--space-md); padding: var(--space-lg); }
+  .hero__trust { flex-direction: column; gap: var(--space-md); padding: var(--space-lg); width: 100%; }
   .hero__trust-divider { width: 40px; height: 1px; }
   .hero__orb--1 { width: 200px; height: 200px; }
   .hero__orb--2 { width: 150px; height: 150px; }

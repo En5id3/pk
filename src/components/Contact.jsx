@@ -37,34 +37,17 @@ export default function Contact() {
                 <div className="contact__info-icon"><HiMail /></div>
                 <div>
                   <h4>Email</h4>
-                  <p>hello@pebblekart.com</p>
-                </div>
-              </div>
-              <div className="contact__info-item">
-                <div className="contact__info-icon"><HiPhone /></div>
-                <div>
-                  <h4>Phone</h4>
-                  <p>+91 98765 43210</p>
+                  <p>ardur.das@gmail.com</p>
                 </div>
               </div>
               <div className="contact__info-item">
                 <div className="contact__info-icon"><HiLocationMarker /></div>
                 <div>
                   <h4>Location</h4>
-                  <p>Available across India (Online & In-person)</p>
+                  <p>Delhi NCR (Online PAN India)</p>
                 </div>
               </div>
             </div>
-
-            <a
-              href="https://wa.me/919876543210?text=Hi%20PebbleKart%2C%20I%27d%20like%20to%20know%20more%20about%20hypnotherapy%20sessions."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-whatsapp contact__whatsapp"
-            >
-              <FaWhatsapp size={20} />
-              Chat on WhatsApp
-            </a>
           </AnimateOnScroll>
 
           <AnimateOnScroll className="contact__form-wrapper" delay={200}>
@@ -102,7 +85,7 @@ export default function Contact() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="+91 98765 43210"
+                    placeholder="Enter your phone number"
                   />
                 </div>
               </div>
