@@ -6,17 +6,45 @@ import './Contact.css';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
 
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setStatus('submitting');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+          ...formData,
+          subject: `New Contact Form Submission from ${formData.name}`,
+          from_name: 'PebbleKart Contact Form',
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setStatus('success');
+        setFormData({ name: '', email: '', phone: '', message: '' });
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        console.error('Submission failed:', result);
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setStatus('error');
+    }
   };
 
   return (
@@ -101,9 +129,19 @@ export default function Contact() {
                   required
                 ></textarea>
               </div>
-              <button type="submit" className="btn btn-primary contact__submit">
-                {submitted ? '✓ Message Sent!' : 'Send Message'}
+              <button 
+                type="submit" 
+                className={`btn btn-primary contact__submit ${status !== 'idle' ? 'btn--loading' : ''}`}
+                disabled={status === 'submitting'}
+              >
+                {status === 'idle' && 'Send Message'}
+                {status === 'submitting' && 'Sending...'}
+                {status === 'success' && '✓ Message Sent!'}
+                {status === 'error' && '✕ Error! Try again.'}
               </button>
+              {status === 'error' && (
+                <p className="contact__error-msg">Something went wrong. Please try again later.</p>
+              )}
             </form>
           </AnimateOnScroll>
         </div>

@@ -111,8 +111,16 @@
   min-height: 120px;
 }
 
-.contact__submit {
-  width: 100%;
+.contact__submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.contact__error-msg {
+  color: #ef4444;
+  font-size: var(--text-xs);
+  margin-top: -var(--space-sm);
+  text-align: center;
 }
 
 @media (max-width: 768px) {
