@@ -4,7 +4,7 @@ import { HiMail, HiPhone, HiLocationMarker } from 'react-icons/hi';
 import { FaWhatsapp } from 'react-icons/fa';
 import './Contact.css';
 
-export default function Contact() {
+export default function Contact({ hideHeader = false }) {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
   const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
 
@@ -50,13 +50,15 @@ export default function Contact() {
   return (
     <section className="contact section" id="contact">
       <div className="container">
-        <AnimateOnScroll className="section-header">
-          <span className="section-label">Get In Touch</span>
-          <h2 className="section-title">Let's Start Your Journey</h2>
-          <p className="section-subtitle">
-            Have questions or ready to book? Reach out — we'd love to hear from you.
-          </p>
-        </AnimateOnScroll>
+        {!hideHeader && (
+          <AnimateOnScroll className="section-header">
+            <span className="section-label">Get In Touch</span>
+            <h2 className="section-title">Let's Start Your Journey</h2>
+            <p className="section-subtitle">
+              Have questions or ready to book? Reach out — we'd love to hear from you.
+            </p>
+          </AnimateOnScroll>
+        )}
 
         <div className="contact__grid">
           <AnimateOnScroll className="contact__info">

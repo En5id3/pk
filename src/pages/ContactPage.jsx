@@ -10,7 +10,7 @@ export default function ContactPage() {
         title="Contact Us"
         subtitle="Have questions or ready to book? We'd love to hear from you."
       />
-      <Contact />
+      <Contact hideHeader={true} />
       <FAQ />
     </>
   );

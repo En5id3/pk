@@ -9,6 +9,12 @@
   justify-content: center;
 }
 
+@media (max-width: 768px) {
+  .hypnotic-container {
+    max-width: 300px;
+  }
+}
+
 .hypnotic-glow {
   position: absolute;
   top: 50%;

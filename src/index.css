@@ -314,15 +314,18 @@ button {
 }
 
 @media (max-width: 768px) {
-  h1 { font-size: var(--text-3xl); }
+  h1 { font-size: var(--text-3xl); letter-spacing: -1px; }
   h2 { font-size: var(--text-2xl); }
   h3 { font-size: var(--text-xl); }
   .container { padding: 0 var(--space-lg); }
-  .section { padding: var(--space-3xl) 0; }
+  .section { padding: var(--space-2xl) 0; }
   .section-header { margin-bottom: var(--space-2xl); }
+  .section-subtitle { font-size: var(--text-base); }
+  .section-label { font-size: var(--text-xs); padding: var(--space-xs) var(--space-md); }
 }
 
 @media (max-width: 480px) {
-  h1 { font-size: var(--text-2xl); }
-  .btn { padding: 0.75rem 1.5rem; font-size: var(--text-sm); }
+  h1 { font-size: 2rem; line-height: 1.1; }
+  .btn { padding: 0.75rem 1.5rem; font-size: var(--text-sm); width: 100%; }
+  .section { padding: var(--space-xl) 0; }
 }

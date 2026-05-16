@@ -154,14 +154,33 @@
 
 @media (max-width: 768px) {
   .about__grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse;
     gap: var(--space-2xl);
+    text-align: center;
   }
   .about__visual {
-    min-height: 300px;
+    min-height: 250px;
+    margin-top: var(--space-xl);
+    margin-bottom: 0;
   }
   .about__visual-card {
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
+  }
+  .about__visual-ripple {
+    inset: -10px;
+  }
+  .about__visual-ripple--2 {
+    inset: -20px;
+  }
+  .about__visual-ripple--3 {
+    inset: -30px;
+  }
+  .about__visual-float {
+    display: none;
+  }
+  .about__value {
+    text-align: left;
   }
 }
